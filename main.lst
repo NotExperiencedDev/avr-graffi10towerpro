@@ -1,4 +1,4 @@
-GAS LISTING /tmp/ccNG0OSW.s 			page 1
+GAS LISTING /tmp/cc9GEw6r.s 			page 1
 
 
    1               		.file	"main.c"
@@ -9,229 +9,247 @@ GAS LISTING /tmp/ccNG0OSW.s 			page 1
    6               	__tmp_reg__ = 16
    7               	__zero_reg__ = 17
    8               		.text
-   9               	.global	main
-  10               		.type	main, @function
-  11               	main:
-  12               	/* prologue: function */
-  13               	/* frame size = 0 */
-  14               	/* stack size = 0 */
-  15               	.L__stack_usage = 0
-  16 0000 41B1      		in r20,0x1
-  17 0002 4660      		ori r20,lo8(6)
-  18 0004 41B9      		out 0x1,r20
-  19 0006 129A      		sbi 0x2,2
-  20 0008 A0E0      		ldi r26,lo8(z1)
-  21 000a B0E0      		ldi r27,hi8(z1)
-  22 000c 80E0      		ldi r24,lo8(z)
-  23 000e 90E0      		ldi r25,hi8(z)
-  24 0010 28EE      		ldi r18,lo8(-24)
-  25 0012 33E0      		ldi r19,lo8(3)
-  26 0014 E0E0      		ldi r30,lo8(i)
-  27 0016 F0E0      		ldi r31,hi8(i)
-  28               	.L2:
-  29 0018 C82F      		mov r28,r24
-  30 001a D92F      		mov r29,r25
-  31 001c 4881      		ld r20,Y
-  32 001e CF5F      		subi r28,lo8(-(1))
-  33 0020 DF4F      		sbci r29,hi8(-(1))
-  34 0022 5881      		ld r21,Y
-  35 0024 C150      		subi r28,lo8((1))
-  36 0026 D040      		sbci r29,hi8((1))
-  37 0028 622F      		mov r22,r18
-  38 002a 732F      		mov r23,r19
-  39 002c 641B      		sub r22,r20
-  40 002e 750B      		sbc r23,r21
-  41 0030 AF5F      		subi r26,lo8(-(1))
-  42 0032 BF4F      		sbci r27,hi8(-(1))
-  43 0034 7C93      		st X,r23
-  44 0036 6E93      		st -X,r22
-  45 0038 129A      		sbi 0x2,2
-  46 003a EF5F      		subi r30,lo8(-(1))
-  47 003c FF4F      		sbci r31,hi8(-(1))
-  48 003e 1083      		st Z,__zero_reg__
-  49 0040 1293      		st -Z,__zero_reg__
-  50 0042 4C91      		ld r20,X
-  51 0044 AF5F      		subi r26,lo8(-(1))
-  52 0046 BF4F      		sbci r27,hi8(-(1))
-  53 0048 5C91      		ld r21,X
-  54 004a A150      		subi r26,lo8((1))
-  55 004c B040      		sbci r27,hi8((1))
-  56 004e 1417      		cp __zero_reg__,r20
-  57 0050 1507      		cpc __zero_reg__,r21
-GAS LISTING /tmp/ccNG0OSW.s 			page 2
+   9               	.global	__vector_5
+  10               		.type	__vector_5, @function
+  11               	__vector_5:
+  12 0000 1F93      		push r17
+  13 0002 0F93      		push r16
+  14 0004 0FB7      		in r16,__SREG__
+  15 0006 0F93      		push r16
+  16 0008 10E0      		ldi __zero_reg__,0
+  17 000a 4F93      		push r20
+  18 000c 5F93      		push r21
+  19 000e 6F93      		push r22
+  20 0010 7F93      		push r23
+  21 0012 EF93      		push r30
+  22 0014 FF93      		push r31
+  23               	/* prologue: Signal */
+  24               	/* frame size = 0 */
+  25               	/* stack size = 9 */
+  26               	.L__stack_usage = 9
+  27 0016 E0E0      		ldi r30,lo8(pwmCount)
+  28 0018 F0E0      		ldi r31,hi8(pwmCount)
+  29 001a 5081      		ld r21,Z
+  30 001c E0E0      		ldi r30,lo8(b)
+  31 001e F0E0      		ldi r31,hi8(b)
+  32 0020 4081      		ld r20,Z
+  33 0022 4517      		cp r20,r21
+  34 0024 00F4      		brsh .L2
+  35 0026 1298      		cbi 0x2,2
+  36 0028 00C0      		rjmp .L3
+  37               	.L2:
+  38 002a 129A      		sbi 0x2,2
+  39               	.L3:
+  40 002c E0E0      		ldi r30,lo8(pwmCount)
+  41 002e F0E0      		ldi r31,hi8(pwmCount)
+  42 0030 4081      		ld r20,Z
+  43 0032 4F5F      		subi r20,lo8(-(1))
+  44 0034 4083      		st Z,r20
+  45 0036 E0E0      		ldi r30,lo8(counter0)
+  46 0038 F0E0      		ldi r31,hi8(counter0)
+  47 003a 4191      		ld r20,Z+
+  48 003c 5191      		ld r21,Z+
+  49 003e 6191      		ld r22,Z+
+  50 0040 7081      		ld r23,Z
+  51 0042 E350      		subi r30,lo8((3))
+  52 0044 F040      		sbci r31,hi8((3))
+  53 0046 4F5F      		subi r20,-1
+  54 0048 5F4F      		sbci r21,-1
+  55 004a 6F4F      		sbci r22,-1
+  56 004c 7F4F      		sbci r23,-1
+  57 004e 4193      		st Z+,r20
+GAS LISTING /tmp/cc9GEw6r.s 			page 2
 
 
-  58 0052 04F4      		brge .L3
-  59               	.L11:
-  60 0054 0000      		nop
-  61 0056 4081      		ld r20,Z
-  62 0058 EF5F      		subi r30,lo8(-(1))
-  63 005a FF4F      		sbci r31,hi8(-(1))
-  64 005c 5081      		ld r21,Z
-  65 005e E150      		subi r30,lo8((1))
-  66 0060 F040      		sbci r31,hi8((1))
-  67 0062 4F5F      		subi r20,-1
-  68 0064 5F4F      		sbci r21,-1
-  69 0066 EF5F      		subi r30,lo8(-(1))
-  70 0068 FF4F      		sbci r31,hi8(-(1))
-  71 006a 5083      		st Z,r21
-  72 006c 4293      		st -Z,r20
-  73 006e 6C91      		ld r22,X
-  74 0070 AF5F      		subi r26,lo8(-(1))
-  75 0072 BF4F      		sbci r27,hi8(-(1))
-  76 0074 7C91      		ld r23,X
-  77 0076 A150      		subi r26,lo8((1))
-  78 0078 B040      		sbci r27,hi8((1))
-  79 007a 4617      		cp r20,r22
-  80 007c 5707      		cpc r21,r23
-  81 007e 04F0      		brlt .L11
-  82               	.L3:
-  83 0080 1298      		cbi 0x2,2
-  84 0082 C0E0      		ldi r28,lo8(j)
-  85 0084 D0E0      		ldi r29,hi8(j)
-  86 0086 1993      		st Y+,__zero_reg__
-  87 0088 1883      		st Y,__zero_reg__
-  88 008a C82F      		mov r28,r24
-  89 008c D92F      		mov r29,r25
-  90 008e 6881      		ld r22,Y
-  91 0090 CF5F      		subi r28,lo8(-(1))
-  92 0092 DF4F      		sbci r29,hi8(-(1))
-  93 0094 7881      		ld r23,Y
-  94 0096 C150      		subi r28,lo8((1))
-  95 0098 D040      		sbci r29,hi8((1))
-  96 009a 1617      		cp __zero_reg__,r22
-  97 009c 1707      		cpc __zero_reg__,r23
-  98 009e 04F4      		brge .L5
-  99               	.L10:
- 100 00a0 0000      		nop
- 101 00a2 C0E0      		ldi r28,lo8(j)
- 102 00a4 D0E0      		ldi r29,hi8(j)
- 103 00a6 4881      		ld r20,Y
- 104 00a8 CF5F      		subi r28,lo8(-(1))
- 105 00aa DF4F      		sbci r29,hi8(-(1))
- 106 00ac 5881      		ld r21,Y
- 107 00ae C150      		subi r28,lo8((1))
- 108 00b0 D040      		sbci r29,hi8((1))
- 109 00b2 4F5F      		subi r20,-1
- 110 00b4 5F4F      		sbci r21,-1
- 111 00b6 4993      		st Y+,r20
- 112 00b8 5883      		st Y,r21
- 113 00ba C82F      		mov r28,r24
- 114 00bc D92F      		mov r29,r25
-GAS LISTING /tmp/ccNG0OSW.s 			page 3
+  58 0050 5193      		st Z+,r21
+  59 0052 6193      		st Z+,r22
+  60 0054 7083      		st Z,r23
+  61 0056 E350      		subi r30,lo8((3))
+  62 0058 F040      		sbci r31,hi8((3))
+  63               	/* epilogue start */
+  64 005a FF91      		pop r31
+  65 005c EF91      		pop r30
+  66 005e 7F91      		pop r23
+  67 0060 6F91      		pop r22
+  68 0062 5F91      		pop r21
+  69 0064 4F91      		pop r20
+  70 0066 0F91      		pop r16
+  71 0068 0FBF      		out __SREG__,r16
+  72 006a 0F91      		pop r16
+  73 006c 1F91      		pop r17
+  74 006e 1895      		reti
+  75               		.size	__vector_5, .-__vector_5
+  76               	.global	main
+  77               		.type	main, @function
+  78               	main:
+  79               	/* prologue: function */
+  80               	/* frame size = 0 */
+  81               	/* stack size = 0 */
+  82               	.L__stack_usage = 0
+  83 0070 41B1      		in r20,0x1
+  84 0072 4660      		ori r20,lo8(6)
+  85 0074 41B9      		out 0x1,r20
+  86 0076 129A      		sbi 0x2,2
+  87 0078 48ED      		ldi r20,lo8(-40)
+  88 007a 4CBF      		out __CCP__,r20
+  89 007c 16BF      		out 0x36,__zero_reg__
+  90 007e 1EBD      		out 0x2e,__zero_reg__
+  91 0080 4AE0      		ldi r20,lo8(10)
+  92 0082 4DBD      		out 0x2d,r20
+  93 0084 47E2      		ldi r20,lo8(39)
+  94 0086 50E0      		ldi r21,0
+  95 0088 57BD      		out 0x26+1,r21
+  96 008a 46BD      		out 0x26,r20
+  97 008c 4BB5      		in r20,0x2b
+  98 008e 4260      		ori r20,lo8(2)
+  99 0090 4BBD      		out 0x2b,r20
+ 100               	/* #APP */
+ 101               	 ;  47 "main.c" 1
+ 102 0092 7894      		sei
+ 103               	 ;  0 "" 2
+ 104               	/* #NOAPP */
+ 105 0094 41B1      		in r20,0x1
+ 106 0096 4760      		ori r20,lo8(7)
+ 107 0098 41B9      		out 0x1,r20
+ 108 009a E0E0      		ldi r30,lo8(colorIndex)
+ 109 009c F0E0      		ldi r31,hi8(colorIndex)
+ 110 009e E081      		ld r30,Z
+ 111 00a0 F0E0      		ldi r31,0
+ 112 00a2 E050      		subi r30,lo8(-(blue+16384))
+ 113 00a4 F040      		sbci r31,hi8(-(blue+16384))
+ 114               	/* #APP */
+GAS LISTING /tmp/cc9GEw6r.s 			page 3
 
 
- 115 00be 6881      		ld r22,Y
- 116 00c0 CF5F      		subi r28,lo8(-(1))
- 117 00c2 DF4F      		sbci r29,hi8(-(1))
- 118 00c4 7881      		ld r23,Y
- 119 00c6 C150      		subi r28,lo8((1))
- 120 00c8 D040      		sbci r29,hi8((1))
- 121 00ca 4617      		cp r20,r22
- 122 00cc 5707      		cpc r21,r23
- 123 00ce 04F0      		brlt .L10
- 124               	.L5:
- 125 00d0 40E0      		ldi r20,lo8(z3)
- 126 00d2 50E0      		ldi r21,hi8(z3)
- 127 00d4 C42F      		mov r28,r20
- 128 00d6 D52F      		mov r29,r21
- 129 00d8 4881      		ld r20,Y
- 130 00da CF5F      		subi r28,lo8(-(1))
- 131 00dc DF4F      		sbci r29,hi8(-(1))
- 132 00de 5881      		ld r21,Y
- 133 00e0 C150      		subi r28,lo8((1))
- 134 00e2 D040      		sbci r29,hi8((1))
- 135 00e4 443F      		cpi r20,-12
- 136 00e6 D1E0      		ldi r29,1
- 137 00e8 5D07      		cpc r21,r29
- 138 00ea 04F4      		brge .L7
- 139 00ec 4F5F      		subi r20,-1
- 140 00ee 5F4F      		sbci r21,-1
- 141 00f0 60E0      		ldi r22,lo8(z3)
- 142 00f2 70E0      		ldi r23,hi8(z3)
- 143 00f4 C62F      		mov r28,r22
- 144 00f6 D72F      		mov r29,r23
- 145 00f8 4993      		st Y+,r20
- 146 00fa 5883      		st Y,r21
- 147 00fc 00C0      		rjmp .L2
- 148               	.L7:
- 149 00fe 40E0      		ldi r20,lo8(z3)
- 150 0100 50E0      		ldi r21,hi8(z3)
- 151 0102 C42F      		mov r28,r20
- 152 0104 D52F      		mov r29,r21
- 153 0106 1993      		st Y+,__zero_reg__
- 154 0108 1883      		st Y,__zero_reg__
- 155 010a 663B      		cpi r22,-74
- 156 010c D3E0      		ldi r29,3
- 157 010e 7D07      		cpc r23,r29
- 158 0110 04F4      		brge .L9
- 159 0112 665F      		subi r22,-10
- 160 0114 7F4F      		sbci r23,-1
- 161 0116 C82F      		mov r28,r24
- 162 0118 D92F      		mov r29,r25
- 163 011a 6993      		st Y+,r22
- 164 011c 7883      		st Y,r23
- 165 011e 00C0      		rjmp .L2
- 166               	.L9:
- 167 0120 42E3      		ldi r20,lo8(50)
- 168 0122 50E0      		ldi r21,0
- 169 0124 C82F      		mov r28,r24
- 170 0126 D92F      		mov r29,r25
- 171 0128 4993      		st Y+,r20
-GAS LISTING /tmp/ccNG0OSW.s 			page 4
+ 115               	 ;  52 "main.c" 1
+ 116 00a6 E081      		ld r30, z
+ 117               		
+ 118               	 ;  0 "" 2
+ 119               	/* #NOAPP */
+ 120 00a8 A0E0      		ldi r26,lo8(b)
+ 121 00aa B0E0      		ldi r27,hi8(b)
+ 122 00ac EC93      		st X,r30
+ 123 00ae C0E0      		ldi r28,lo8(counter0)
+ 124 00b0 D0E0      		ldi r29,hi8(counter0)
+ 125 00b2 20E0      		ldi r18,lo8(colorIndex)
+ 126 00b4 30E0      		ldi r19,hi8(colorIndex)
+ 127               	.L5:
+ 128 00b6 4991      		ld r20,Y+
+ 129 00b8 5991      		ld r21,Y+
+ 130 00ba 6991      		ld r22,Y+
+ 131 00bc 7881      		ld r23,Y
+ 132 00be C350      		subi r28,lo8((3))
+ 133 00c0 D040      		sbci r29,hi8((3))
+ 134 00c2 5F77      		andi r21,127
+ 135 00c4 6627      		clr r22
+ 136 00c6 7727      		clr r23
+ 137 00c8 452B      		or r20,r21
+ 138 00ca 462B      		or r20,r22
+ 139 00cc 472B      		or r20,r23
+ 140 00ce 01F4      		brne .L5
+ 141 00d0 A22F      		mov r26,r18
+ 142 00d2 B32F      		mov r27,r19
+ 143 00d4 8C91      		ld r24,X
+ 144 00d6 90E0      		ldi r25,0
+ 145 00d8 8F5F      		subi r24,-1
+ 146 00da 9F4F      		sbci r25,-1
+ 147 00dc 65E0      		ldi r22,lo8(5)
+ 148 00de 70E0      		ldi r23,0
+ 149 00e0 00D0      		rcall __divmodhi4
+ 150 00e2 E22F      		mov r30,r18
+ 151 00e4 F32F      		mov r31,r19
+ 152 00e6 8083      		st Z,r24
+ 153 00e8 E081      		ld r30,Z
+ 154 00ea F0E0      		ldi r31,0
+ 155 00ec E050      		subi r30,lo8(-(blue+16384))
+ 156 00ee F040      		sbci r31,hi8(-(blue+16384))
+ 157               	/* #APP */
+ 158               	 ;  57 "main.c" 1
+ 159 00f0 E081      		ld r30, z
+ 160               		
+ 161               	 ;  0 "" 2
+ 162               	/* #NOAPP */
+ 163 00f2 A0E0      		ldi r26,lo8(b)
+ 164 00f4 B0E0      		ldi r27,hi8(b)
+ 165 00f6 EC93      		st X,r30
+ 166 00f8 00C0      		rjmp .L5
+ 167               		.size	main, .-main
+ 168               	.global	colorInterval
+ 169               		.section	.rodata
+ 170               		.type	colorInterval, @object
+ 171               		.size	colorInterval, 4
+GAS LISTING /tmp/cc9GEw6r.s 			page 4
 
 
- 172 012a 5883      		st Y,r21
- 173 012c 00C0      		rjmp .L2
- 174               		.size	main, .-main
- 175               	.global	j
- 176               		.section .bss
- 177               		.type	j, @object
- 178               		.size	j, 2
- 179               	j:
- 180 0000 0000      		.zero	2
- 181               	.global	i
- 182               		.type	i, @object
- 183               		.size	i, 2
- 184               	i:
- 185 0002 0000      		.zero	2
- 186               	.global	z3
- 187               		.type	z3, @object
- 188               		.size	z3, 2
- 189               	z3:
- 190 0004 0000      		.zero	2
- 191               	.global	z1
- 192               		.data
- 193               		.type	z1, @object
- 194               		.size	z1, 2
- 195               	z1:
- 196 0000 B603      		.word	950
- 197               	.global	z
- 198               		.type	z, @object
- 199               		.size	z, 2
- 200               	z:
- 201 0002 3200      		.word	50
- 202               		.ident	"GCC: (GNU) 4.9.2"
- 203               	.global __do_copy_data
- 204               	.global __do_clear_bss
-GAS LISTING /tmp/ccNG0OSW.s 			page 5
+ 172               	colorInterval:
+ 173 0000 00        		.byte	0
+ 174 0001 80        		.byte	-128
+ 175 0002 00        		.byte	0
+ 176 0003 00        		.byte	0
+ 177               	.global	colorIndex
+ 178               		.section .bss
+ 179               		.type	colorIndex, @object
+ 180               		.size	colorIndex, 1
+ 181               	colorIndex:
+ 182 0000 00        		.zero	1
+ 183               	.global	blue
+ 184               		.section	.progmem.data,"a",@progbits
+ 185               		.type	blue, @object
+ 186               		.size	blue, 5
+ 187               	blue:
+ 188 0000 FF        		.byte	-1
+ 189 0001 FF        		.byte	-1
+ 190 0002 00        		.byte	0
+ 191 0003 7F        		.byte	127
+ 192 0004 00        		.byte	0
+ 193               	.global	nColors
+ 194               		.section	.rodata
+ 195               		.type	nColors, @object
+ 196               		.size	nColors, 1
+ 197               	nColors:
+ 198 0004 05        		.byte	5
+ 199               	.global	counter0
+ 200               		.section .bss
+ 201               		.type	counter0, @object
+ 202               		.size	counter0, 4
+ 203               	counter0:
+ 204 0001 0000 0000 		.zero	4
+ 205               	.global	pwmCount
+ 206               		.type	pwmCount, @object
+ 207               		.size	pwmCount, 1
+ 208               	pwmCount:
+ 209 0005 00        		.zero	1
+ 210               	.global	b
+ 211               		.data
+ 212               		.type	b, @object
+ 213               		.size	b, 1
+ 214               	b:
+ 215 0000 FF        		.byte	-1
+ 216               		.ident	"GCC: (GNU) 4.9.2"
+ 217               	.global __do_copy_data
+ 218               	.global __do_clear_bss
+GAS LISTING /tmp/cc9GEw6r.s 			page 5
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 main.c
-     /tmp/ccNG0OSW.s:2      *ABS*:000000000000003e __SP_H__
-     /tmp/ccNG0OSW.s:3      *ABS*:000000000000003d __SP_L__
-     /tmp/ccNG0OSW.s:4      *ABS*:000000000000003f __SREG__
-     /tmp/ccNG0OSW.s:5      *ABS*:000000000000003c __CCP__
-     /tmp/ccNG0OSW.s:6      *ABS*:0000000000000010 __tmp_reg__
-     /tmp/ccNG0OSW.s:7      *ABS*:0000000000000011 __zero_reg__
-     /tmp/ccNG0OSW.s:11     .text:0000000000000000 main
-     /tmp/ccNG0OSW.s:195    .data:0000000000000000 z1
-     /tmp/ccNG0OSW.s:200    .data:0000000000000002 z
-     /tmp/ccNG0OSW.s:184    .bss:0000000000000002 i
-     /tmp/ccNG0OSW.s:179    .bss:0000000000000000 j
-     /tmp/ccNG0OSW.s:189    .bss:0000000000000004 z3
+     /tmp/cc9GEw6r.s:2      *ABS*:000000000000003e __SP_H__
+     /tmp/cc9GEw6r.s:3      *ABS*:000000000000003d __SP_L__
+     /tmp/cc9GEw6r.s:4      *ABS*:000000000000003f __SREG__
+     /tmp/cc9GEw6r.s:5      *ABS*:000000000000003c __CCP__
+     /tmp/cc9GEw6r.s:6      *ABS*:0000000000000010 __tmp_reg__
+     /tmp/cc9GEw6r.s:7      *ABS*:0000000000000011 __zero_reg__
+     /tmp/cc9GEw6r.s:11     .text:0000000000000000 __vector_5
+     /tmp/cc9GEw6r.s:208    .bss:0000000000000005 pwmCount
+     /tmp/cc9GEw6r.s:214    .data:0000000000000000 b
+     /tmp/cc9GEw6r.s:203    .bss:0000000000000001 counter0
+     /tmp/cc9GEw6r.s:78     .text:0000000000000070 main
+     /tmp/cc9GEw6r.s:181    .bss:0000000000000000 colorIndex
+     /tmp/cc9GEw6r.s:187    .progmem.data:0000000000000000 blue
+     /tmp/cc9GEw6r.s:172    .rodata:0000000000000000 colorInterval
+     /tmp/cc9GEw6r.s:197    .rodata:0000000000000004 nColors
 
 UNDEFINED SYMBOLS
+__divmodhi4
 __do_copy_data
 __do_clear_bss

@@ -1,40 +1,43 @@
 
-#define F_CPU 1000000L
-#include <util/delay.h>
+#define F_CPU 8000000L
 #include "main.h"
+#include<avr/pgmspace.h>
+#include <avr/interrupt.h>
 
-int z=50;
-int z1 = 950;
-int z3 = 0;
-int i = 0;
-int j =0;
+
+ 
+ISR(TIM0_COMPA_vect)
+{
+}
+
 int main(void)
 {
     PORTSETUP;
     PINON(PORTB, PB2);
     
+    CCP = 0xD8;
+    CLKPSR = 0; 
+
+    // set up Output Compare A
+// WGM[3:0] is set to 0010
+// prescaler is set to clk/8 (010)
+TCCR0A = 0;
+TCCR0B = (1 << 1) | (1 << WGM02);
+// set Output Compare A value
+OCR0A = 39;
+// enable Output Compare A Match interrupt
+TIMSK0 |= (1 << OCIE0A);
+
+sei();
+	
+	// set pin directions
+	//DDRB |= (1 << PB0) | (1 << PB1) | (1 << PB2);
+
+ 
+
    while(1){
-        z1 = 1000 - z;
-       PINON(PORTB, PB2);
-       for(i =0 ; i< z1; i++)
-       _delay_us(1);
+    
 
-      //
-       PINOFF(PORTB, PB2);
-       for(j=0; j< z; j++)       
-        _delay_us(1);
-
-     if(z3 < 500)
-     {
-         z3++;
-     }
-     else{
-        z3 = 0;
-     if(z <950)
-       z = z + 10;
-     else
-       z = 50;
-     }
    }
 
     return 0;
