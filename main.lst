@@ -1,0 +1,113 @@
+GAS LISTING /tmp/ccGNfhtE.s 			page 1
+
+
+   1               		.file	"main.c"
+   2               	__SP_H__ = 0x3e
+   3               	__SP_L__ = 0x3d
+   4               	__SREG__ = 0x3f
+   5               	__CCP__ = 0x3c
+   6               	__tmp_reg__ = 16
+   7               	__zero_reg__ = 17
+   8               		.text
+   9               	.global	main
+  10               		.type	main, @function
+  11               	main:
+  12               	/* prologue: function */
+  13               	/* frame size = 0 */
+  14               	/* stack size = 0 */
+  15               	.L__stack_usage = 0
+  16 0000 41B1      		in r20,0x1
+  17 0002 4660      		ori r20,lo8(6)
+  18 0004 41B9      		out 0x1,r20
+  19 0006 42E2      		ldi r20,lo8(34)
+  20 0008 4EBD      		out 0x2e,r20
+  21 000a 49E1      		ldi r20,lo8(25)
+  22 000c 4DBD      		out 0x2d,r20
+  23 000e 4FE1      		ldi r20,lo8(31)
+  24 0010 5EE4      		ldi r21,lo8(78)
+  25 0012 53BD      		out 0x22+1,r21
+  26 0014 42BD      		out 0x22,r20
+  27 0016 44EF      		ldi r20,lo8(-12)
+  28 0018 51E0      		ldi r21,lo8(1)
+  29 001a 55BD      		out 0x24+1,r21
+  30 001c 44BD      		out 0x24,r20
+  31 001e 4FE3      		ldi r20,lo8(199999)
+  32 0020 5DE0      		ldi r21,hi8(199999)
+  33 0022 63E0      		ldi r22,hlo8(199999)
+  34 0024 4150      	1:	subi r20,1
+  35 0026 5040      		sbci r21,0
+  36 0028 6040      		sbci r22,0
+  37 002a 01F4      		brne 1b
+  38 002c 00C0      		rjmp .
+  39 002e 0000      		nop
+  40 0030 1298      		cbi 0x2,2
+  41 0032 7FE3      		ldi r23,lo8(199999)
+  42 0034 8DE0      		ldi r24,hi8(199999)
+  43 0036 93E0      		ldi r25,hlo8(199999)
+  44 0038 7150      	1:	subi r23,1
+  45 003a 8040      		sbci r24,0
+  46 003c 9040      		sbci r25,0
+  47 003e 01F4      		brne 1b
+  48 0040 00C0      		rjmp .
+  49 0042 0000      		nop
+  50 0044 129A      		sbi 0x2,2
+  51 0046 46E2      		ldi r20,lo8(38)
+  52 0048 52E0      		ldi r21,lo8(2)
+  53 004a 55BD      		out 0x24+1,r21
+  54 004c 44BD      		out 0x24,r20
+  55 004e 62E3      		ldi r22,lo8(50)
+  56               	.L2:
+  57 0050 7FE3      		ldi r23,lo8(199999)
+GAS LISTING /tmp/ccGNfhtE.s 			page 2
+
+
+  58 0052 8DE0      		ldi r24,hi8(199999)
+  59 0054 93E0      		ldi r25,hlo8(199999)
+  60 0056 7150      	1:	subi r23,1
+  61 0058 8040      		sbci r24,0
+  62 005a 9040      		sbci r25,0
+  63 005c 01F4      		brne 1b
+  64 005e 00C0      		rjmp .
+  65 0060 0000      		nop
+  66 0062 1298      		cbi 0x2,2
+  67 0064 7FE3      		ldi r23,lo8(199999)
+  68 0066 8DE0      		ldi r24,hi8(199999)
+  69 0068 93E0      		ldi r25,hlo8(199999)
+  70 006a 7150      	1:	subi r23,1
+  71 006c 8040      		sbci r24,0
+  72 006e 9040      		sbci r25,0
+  73 0070 01F4      		brne 1b
+  74 0072 00C0      		rjmp .
+  75 0074 0000      		nop
+  76 0076 129A      		sbi 0x2,2
+  77 0078 460F      		add r20,r22
+  78 007a 511F      		adc r21,__zero_reg__
+  79 007c 67FD      		sbrc r22,7
+  80 007e 5A95      		dec r21
+  81 0080 55BD      		out 0x24+1,r21
+  82 0082 44BD      		out 0x24,r20
+  83 0084 842F      		mov r24,r20
+  84 0086 952F      		mov r25,r21
+  85 0088 8652      		subi r24,38
+  86 008a 9240      		sbci r25,2
+  87 008c 8D3D      		cpi r24,-35
+  88 008e 9540      		sbci r25,5
+  89 0090 00F0      		brlo .L2
+  90 0092 6195      		neg r22
+  91 0094 00C0      		rjmp .L2
+  92               		.size	main, .-main
+  93               		.ident	"GCC: (GNU) 4.9.2"
+GAS LISTING /tmp/ccGNfhtE.s 			page 3
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 main.c
+     /tmp/ccGNfhtE.s:2      *ABS*:000000000000003e __SP_H__
+     /tmp/ccGNfhtE.s:3      *ABS*:000000000000003d __SP_L__
+     /tmp/ccGNfhtE.s:4      *ABS*:000000000000003f __SREG__
+     /tmp/ccGNfhtE.s:5      *ABS*:000000000000003c __CCP__
+     /tmp/ccGNfhtE.s:6      *ABS*:0000000000000010 __tmp_reg__
+     /tmp/ccGNfhtE.s:7      *ABS*:0000000000000011 __zero_reg__
+     /tmp/ccGNfhtE.s:11     .text:0000000000000000 main
+
+NO UNDEFINED SYMBOLS

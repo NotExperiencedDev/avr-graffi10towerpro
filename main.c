@@ -1,3 +1,4 @@
+//mcu is running on its default 1 MHz
 #define F_CPU 1000000L
 
 #include "main.h"
