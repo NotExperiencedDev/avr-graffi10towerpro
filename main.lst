@@ -1,4 +1,4 @@
-GAS LISTING /tmp/cc6Avhn4.s 			page 1
+GAS LISTING /tmp/ccWSZ4dz.s 			page 1
 
 
    1               		.file	"main.c"
@@ -58,7 +58,7 @@ GAS LISTING /tmp/cc6Avhn4.s 			page 1
   55 004e 62E3      		ldi r22,lo8(50)
   56               	.L2:
   57 0050 7FE3      		ldi r23,lo8(199999)
-GAS LISTING /tmp/cc6Avhn4.s 			page 2
+GAS LISTING /tmp/ccWSZ4dz.s 			page 2
 
 
   58 0052 8DE0      		ldi r24,hi8(199999)
@@ -97,17 +97,17 @@ GAS LISTING /tmp/cc6Avhn4.s 			page 1
   91 0094 00C0      		rjmp .L2
   92               		.size	main, .-main
   93               		.ident	"GCC: (GNU) 4.9.2"
-GAS LISTING /tmp/cc6Avhn4.s 			page 3
+GAS LISTING /tmp/ccWSZ4dz.s 			page 3
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 main.c
-     /tmp/cc6Avhn4.s:2      *ABS*:000000000000003e __SP_H__
-     /tmp/cc6Avhn4.s:3      *ABS*:000000000000003d __SP_L__
-     /tmp/cc6Avhn4.s:4      *ABS*:000000000000003f __SREG__
-     /tmp/cc6Avhn4.s:5      *ABS*:000000000000003c __CCP__
-     /tmp/cc6Avhn4.s:6      *ABS*:0000000000000010 __tmp_reg__
-     /tmp/cc6Avhn4.s:7      *ABS*:0000000000000011 __zero_reg__
-     /tmp/cc6Avhn4.s:11     .text:0000000000000000 main
+     /tmp/ccWSZ4dz.s:2      *ABS*:000000000000003e __SP_H__
+     /tmp/ccWSZ4dz.s:3      *ABS*:000000000000003d __SP_L__
+     /tmp/ccWSZ4dz.s:4      *ABS*:000000000000003f __SREG__
+     /tmp/ccWSZ4dz.s:5      *ABS*:000000000000003c __CCP__
+     /tmp/ccWSZ4dz.s:6      *ABS*:0000000000000010 __tmp_reg__
+     /tmp/ccWSZ4dz.s:7      *ABS*:0000000000000011 __zero_reg__
+     /tmp/ccWSZ4dz.s:11     .text:0000000000000000 main
 
 NO UNDEFINED SYMBOLS
